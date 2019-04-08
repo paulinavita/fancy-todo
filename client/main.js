@@ -80,10 +80,8 @@ function login() {
       fetchTodoList()
     })
     .fail(function (err, textStatus) {
-      // console.log(err)
-      let errors = ''
       swal({
-        text: errors,
+        text: 'Please check your credentials',
         icon: "warning",
         button: "Understood",
       });
@@ -255,9 +253,11 @@ function deleteTodo(id) {
 function showChecked() {
   event.preventDefault()
   let name = localStorage.getItem('username')
+  let userId = localStorage.getItem('userId')
+
   $('#name-header').html(name)
   $.ajax({
-    url: `http://localhost:3000/todo/checked`,
+    url: `http://localhost:3000/todo/${userId}/checked`,
     type: 'GET',
     headers: {
       token: localStorage.getItem('token')
@@ -298,9 +298,11 @@ function showChecked() {
 function showUnchecked() {
   event.preventDefault()
   let name = localStorage.getItem('username')
+  let userId = localStorage.getItem('userId')
+
   $('#name-header').html(name)
   $.ajax({
-    url: `http://localhost:3000/todo/unchecked`,
+    url: `http://localhost:3000/todo/${userId}/unchecked`,
     type: 'GET',
     headers: {
       token: localStorage.getItem('token')
@@ -342,13 +344,13 @@ function showUnchecked() {
 
 function addTodo() {
   event.preventDefault()
-  // let token = localStorage.getItem('token')
+  let userId = localStorage.getItem('userId')
   let name = $('#task-name').val()
   let description = $('#task-desc').val()
   let dueDate = $("#task-dueDate").val()
 
   $.ajax({
-    url: `http://localhost:3000/todo/`,
+    url: `http://localhost:3000/todo/${userId}`,
     type: 'POST',
     headers: {
       token: localStorage.getItem('token'),
@@ -370,8 +372,8 @@ function addTodo() {
       <p>Due : ${todo.dueDate.split('T')[0]}</p>
     </div>
     <div class="card-action">
-      <a onclick="">${showDone}</a>
-      <a onclick="deleteTodo('${todo._id}')">Delete</a>
+    <a id="${todo._id}" onclick="changeToCheck(this)">Check</a>
+    <a onclick="deleteTodo('${todo._id}')">Delete</a>
     </div>
     `)
       M.toast({ html: 'New task has been created.' })
@@ -396,6 +398,8 @@ if (!localStorage.getItem('token')) {
   $('#public-page').show()
   $('#dashboard').hide()
   $('#registration-page').hide()
+
+
 } else {
   $('#dashboard').show()
   $('#registration-page').hide()

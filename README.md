@@ -15,9 +15,11 @@ Server URL : http://localhost:3000
 | --------- | ------ | --------- | ------------------------------------------------------------ | ---------------------------------------- | --------------------- | ------------------------- |
 | /todo/    | GET    | Token     | None                                                         | `Status code : 200`<br>`dataTypes : []`  | `Status code : 400` ` | Get all todo list by user |
 | /todo/:id | GET    | Token     | None                                                         | `Status code : 200`<br/>`dataTypes : []` | `Status code : 400`   | Get specific todo by id   |
-| /todo/    | POST   | Token     | userId:String**(Required)**, name:String**(Required)**, description:String**(Required)**, dueDate: date**(Required)** | `Status code : 200`<br/>`dataTypes : []` | `Status code : 400`   | Create a to-do by user    |
+| /todo/:id    | POST   | Token     | userId:String**(Required)**, name:String**(Required)**, description:String**(Required)**, dueDate: date**(Required)** | `Status code : 200`<br/>`dataTypes : {}` | `Status code : 400`   | Create a to-do by user    |
+| /todo/:id/checked| GET    | Token     | None                                                         | `Status code : 200`<br/>`dataTypes : []` | `Status code : 400`   | Get finished to do  |
+| /todo/:id/:unchecked | GET    | Token     | None                                                         | `Status code : 200`<br/>`dataTypes : []` | `Status code : 400`   | Get unfinished to do  |
 | /todo/:id | DELETE | Token     | None                                                         | `Status code : 200`<br/>`dataTypes : {}` | `Status code : 400`   | Delete a to-do            |
-| /todo/id  | PUT    | Token     | None                                                         | `Status code : 200`<br/>`dataTypes : {}` | `Status code : 400`   | Edit a to-do              |
+| /todo/:id  | PUT    | Token     | None                                                         | `Status code : 200`<br/>`dataTypes : {}` | `Status code : 400`   | Edit a to-do              |
 
 
 

@@ -58,12 +58,12 @@ class UserController {
         if (req.body.password == '') {
             throw new Error ('Password cannot be empty')
         }
-        console.log(req.body,'local signin')
+        // console.log(req.body,'local signin')
         User.findOne({
             username: req.body.username
         })
             .then((user) => {
-                console.log('ini yg login', user)
+                // console.log('ini yg login', user)
                 if (!user) {
                     res.status(400).json({
                         msg: 'Username not found'
@@ -74,21 +74,19 @@ class UserController {
                             msg: 'Password invalid'
                         })
                     } else {
-                        console.log('sini')
                         const { username, email, _id } = user
                         let  token = jwt.sign({
                             id: _id,
                             email,
                             username
                         }, process.env.JWT_SECRET);
-                        console.log('ini' , token, '/////')
                         res.status(200).json({token, _id, username})
                     }
                 }
             })
             .catch(err => {
                 console.log('error di bag local')
-                res.status(400).json(err.message)
+                res.status(400).json(err)
             })
     }
 
@@ -106,7 +104,7 @@ class UserController {
         })
         .then((user) => {
             if (!user) {
-                console.log('sign in if berhasil')
+                // console.log('sign in if berhasil')
                 let obj = {
                     username : payload.name,
                     email: payload.email,
@@ -119,21 +117,20 @@ class UserController {
                         email: payload.email,
                         username : payload.name,
                     }, process.env.JWT_SECRET)
-                    console.log('dapet token jwt abis gogle', token)
+                    // console.log('dapet token jwt abis gogle', token)
                     res.status(201).json({token})
                 })
                 .catch(err => {
                     throw err
                 })
             } else {
-                console.log('ini di sign in else')
                 token = jwt.sign({ id: user._id, username: user.username, email:user.email},
                     process.env.JWT_SECRET,
                     { expiresIn: '24h' }
                     );
                 let id = user._id
                 let username = user.username
-                console.log('ini token kalo udah daftar', token)
+                // console.log('ini token kalo udah daftar', token)
                 res.status(200).json({token, id, username})
             }
         })
