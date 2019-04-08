@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/css?family=Heebo:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./style.css">
+    <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.css" media="screen,projection" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="google-signin-client_id"
+        content="271978990708-qlg5j9c8loe2u72o7ckl5v7dj4gcr88d.apps.googleusercontent.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</head>
+
+<body>
+    <div id="dashboard">
+        <div class="navbar-fixed">
+            <nav class="black" id='nav'>
+                <div class="nav-wrapper">
+                    <div class="container">
+                        <a onclick="fetchTodoList()" class="brand-logo"><i
+                                class="material-icons">favorite_border</i></a>
+                        <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i
+                                class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="#addTodo" class="black modal-trigger">Add A Todo</a></li>
+                            <li><a onclick="fetchTodoList()" class="black ">All Todo</a></li>
+                            <li><a onclick="showChecked()" class="black ">Checked</a></li>
+                            <li><a onclick="showUnchecked()" class="black ">Unchecked</a></li>
+                            <li><a href="#" onclick="signOut();">Sign out</a>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Side nav -->
+        <ul class="sidenav" id="mobile-nav">
+            <li><a href="#addTodo" class="white modal-trigger">Add A Todo</a></li>
+            <li><a href="#filterTodo" class="white modal-trigger">Actions</a></li>
+            <li><a href="#" onclick="signOut();">Sign out</a>
+        </ul>
+
+        <!-- Divs for todos -->
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h2 id='hello-tag'></h2>
+                    <h3 class='text-center'>Hello, <span id='name-header'></span>.</h3>
+                    <h3 class='text-center'>What's your main <a>focus</a> for today?</h3>
+                    <br>
+                </div>
+                <div class="row">
+                    <div class="col s12 cards-container">
+                        <section id='todo-list'></section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- public login -->
+        <div class="container" id='public-page'>
+            <div id='front-title'>
+                <h2 class="black-text">what to do?</h2>
+            </div>
+            <div id='public-page2' class="container" style="padding-top:100px">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="username" placeholder="Username" id="username" type="text"
+                                    class="validate">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="password" id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <div id="member-public" class="row">
+                <a onclick="showRegistration()" href="">
+                    <h7>Not a member?</h7>
+                </a>
+            </div>
+            <a class="waves-effect waves-light btn-small" id='login-button' onclick="login()"><i
+                    class="material-icons left">cloud</i>login</a>
+            <br /> <br />
+
+            <div id="google-login" class="row center">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+
+        </div>
+
+        <!-- public register -->
+
+        <div class="container" id="registration-page">
+            <div id='front-title2'>
+                <h2 class="black-text">what to do?</h2>
+            </div>
+            <div id="registration-page2" class="container" style="padding-top:100px">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="username" placeholder="Username" id="username-regist" type="text"
+                                    class="validate">
+                                <label for="username">Username</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="password" type="password" id="password-regist" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="email" type="email" id="email-regist" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div>
+            <div id="account-public" class="row">
+                <a onclick="showLogin" href="">
+                    <h7>Have an account?</h7>
+                </a>
+            </div>
+            <a class="waves-effect waves-light btn-small" id='login-button' onclick="register()"><i
+                    class="material-icons left">cloud</i>Register</a>
+            <br /> <br />
+
+            <div id="google-login" class="row center">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+        </div>
+
+
+        <!-- Modal on add todo -->
+        <div id="addTodo" class="modal">
+            <div class="modal-content">
+                <h6>Add New Todo</h6>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">clear_all</i>
+                                <input id="task-name" type="text" class="validate">
+                                <label for="icon_prefix">What to do?</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">chat_bubble_outline</i>
+                                <input id="task-desc" type="text" class="validate">
+                                <label for="icon_prefix">Description</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">add_alert</i>
+                                <!-- <input id="task-dueDate" type="text" class="datepicker"> -->
+                                <input id="task-dueDate" type="datetime-local">
+                                <!-- <label for="icon_prefix">Click To Pick Date</label> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a onclick="addTodo()" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--JavaScript at end of body for optimized loading-->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="./materialize/js/materialize.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="./main.js"></script>
+
+</body>
+
+</html>
