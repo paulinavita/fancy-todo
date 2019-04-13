@@ -3,11 +3,8 @@ const { Todo } = require('../models/')
 class TodoController {
 
     static create(req, res) {
-        console.log('masuk create')
-        //jgn lupa req body user id nya harus ada kalo error, cek ud kirim headers apa blm jg
         let newTodo = new Todo({ ...req.body, userId: req.authenticatedUser.id, createdAt: new Date() })
         newTodo.save()
-            // console.log(newTodo, 'ini newtodo')
             // Todo.create({...req.body})
             .then(saved => {
                 // console.log('berhasil save')
@@ -15,24 +12,23 @@ class TodoController {
             })
             .catch(err => {
                 // console.log('gagal create todo')
-                // console.log(err)
                 res.status(400).json(err)
             })
 
     }
 
     static update(req, res) {
-        Todo.findOneAndUpdate({ _id: req.params.id }, { $set: req.body })
+        Todo.findOneAndUpdate({ _id: req.params.id },  { $set: req.body }, {new : true})
             .then(found => {
                 if (found) {
-                    // console.log('ketemu data')
+                    console.log('ketemu data')
                     res.status(200).json(found)
                 } else {
                     res.status(404).json({ message: `No such id exist` })
                 }
             })
             .catch(err => {
-                // console.log('err di bag updadte')
+                console.log('err di bag updadte')
                 res.status(400).json(err)
             })
     }
@@ -55,12 +51,14 @@ class TodoController {
     }
 
     static findOne(req, res) {
+        // console.log('masuk')
         Todo.findOne({ _id: req.params.id })
             .then(found => {
                 if (found) res.status(200).json(found)
                 else res.status(404).json({ message: `No such id exist` })
             })
             .catch(err => {
+                console.log(err)
                 res.status(400).json(err)
             })
     }
@@ -109,6 +107,7 @@ class TodoController {
     }
 
     static findChecked(req, res) {
+        console.log('masuk sini')
         Todo.find({userId : req.authenticatedUser.id})
         .then(todos => {
             let checked = todos.filter(todo => {return todo.status == true})

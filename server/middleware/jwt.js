@@ -5,7 +5,7 @@ module.exports = {
         try {
             const decoded = jwt.verify(req.headers.token, process.env.JWT_SECRET)
             req.authenticatedUser= decoded
-            // console.log('isi authenticated user', req.authenticatedUser)
+            // console.log(req.authenticatedUser, '////')
             next()
         } catch {
             res.status(401).json({

@@ -3,7 +3,7 @@
 
 <head>
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="./style.css">
@@ -51,7 +51,7 @@
                 <div class="col s12">
                     <h2 id='hello-tag'></h2>
                     <h3 class='text-center'>Hello, <span id='name-header'></span>.</h3>
-                    <h3 class='text-center'>What's your main <a>focus</a> for today?</h3>
+                    <h3 class='text-center'>What's your main <b><i>focus</b></i> for today?</h3>
                     <br>
                 </div>
                 <div class="row">
@@ -64,137 +64,182 @@
     </div>
 
 
-        <!-- public login -->
-        <div class="container" id='public-page'>
-            <div id='front-title'>
-                <h2 class="black-text">what to do?</h2>
-            </div>
-            <div id='public-page2' class="container" style="padding-top:100px">
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="username" placeholder="Username" id="username" type="text"
-                                    class="validate">
-                                <label for="username">Username</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="password" id="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
-            <div id="member-public" class="row">
-                <a onclick="showRegistration()" href="">
-                    <h7>Not a member?</h7>
-                </a>
-            </div>
-            <a class="waves-effect waves-light btn-small" id='login-button' onclick="login()"><i
-                    class="material-icons left">cloud</i>login</a>
-            <br /> <br />
-
-            <div id="google-login" class="row center">
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            </div>
-
+    <!-- public login -->
+    <div class="container" id='public-page'>
+        <div id='front-title'>
+            <b><h2 class="white-text">I'd Rather Do...</h2></b>
         </div>
+        <div id='public-page2' class="container" style="padding-top:100px">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="username" placeholder="Username" id="username" type="text" class="validate">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="password" id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
 
-        <!-- public register -->
 
-        <div class="container" id="registration-page">
-            <div id='front-title2'>
-                <h2 class="black-text">what to do?</h2>
-            </div>
-            <div id="registration-page2" class="container" style="padding-top:100px">
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="username" placeholder="Username" id="username-regist" type="text"
-                                    class="validate">
-                                <label for="username">Username</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="password" type="password" id="password-regist" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="email" type="email" id="email-regist" class="validate">
-                                <label for="email">Email</label>
-                            </div>
-                        </div>
-                </div>
                 </form>
             </div>
-            <div id="account-public" class="row">
-                <a onclick="showLogin" href="">
-                    <h7>Have an account?</h7>
+        </div>
+        <div id="member-public" class="row">
+            <center>
+                <a onclick="showRegistration()" href="">
+                    <h7 class="white-text">Not a member?</h7>
                 </a>
-            </div>
-            <a class="waves-effect waves-light btn-small" id='login-button' onclick="register()"><i
-                    class="material-icons left">cloud</i>Register</a>
-            <br /> <br />
+            </center>
+        </div>
+        <centeR>
+            <div class=" row">
+                <a class="waves-effect black btn-small" id='login-button' onclick="login()"><i
+                        class="material-icons left">cloud</i>login</a>
+                <div class=" row">
 
-            <div id="google-login" class="row center">
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <div id="google-login">
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </centeR>
+    </div>
+
+    <!-- public register -->
+
+    <div class="container" id="registration-page">
+        <div id='front-title2'>
+                <b><h2 class="white-text">I'd Rather Do...</h2></b>
+            </div>
+        <div id="registration-page2" class="container" style="padding-top:100px">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12 white-text">
+                            <input name="username" placeholder="Username" id="username-regist" type="text"
+                                class="validate">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="password" type="password" id="password-regist" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="email" type="email" id="email-regist" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+        <div id="account-public">
+            <center><a onclick="showLogin" href="">
+                <h7 class="white-text">Have an account?</h7>
+            </a></center>
+        </div>
+        <centeR>
+
+        <div class="row">
+        <a class="waves-effect black btn-small" id='login-button' onclick="register()"><i
+                class="material-icons left">cloud</i>Register</a>
+        </div>
+        <div id="google-login">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+        <centeR>
+    </div>
+
+
+    <!-- Modal on edit -->
+    <div id="editTodo" class="modal">
+        <div class="modal-content">
+            <h6>Edit Your Todo</h6>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">clear_all</i>
+                            <input id="edit-task-name" value="" type="text" class="validate">
+                            <label class="active" for="icon_prefix"></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">chat_bubble_outline</i>
+                            <input id="edit-task-desc" value="" type="text" class="validate">
+                            <label for="icon_prefix"></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">add_alert</i>
+                            <!-- <input id="task-dueDate" type="text" class="datepicker"> -->
+                            <input id="edit-task-dueDate" value="" type="datetime-local">
+                            <!-- <label for="icon_prefix">Click To Pick Date</label> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="edit-button" class="modal-footer"><a class="modal-close waves-effect waves-green btn-flat">OK</a>
             </div>
         </div>
+    </div>
 
 
-        <!-- Modal on add todo -->
-        <div id="addTodo" class="modal">
-            <div class="modal-content">
-                <h6>Add New Todo</h6>
-                <div class="row">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">clear_all</i>
-                                <input id="task-name" type="text" class="validate">
-                                <label for="icon_prefix">What to do?</label>
-                            </div>
+    <!-- Modal on add todo -->
+    <div id="addTodo" class="modal">
+        <div class="modal-content">
+            <h6>Add New Todo</h6>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">clear_all</i>
+                            <input id="task-name" type="text" class="validate">
+                            <label for="icon_prefix">What to do?</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">chat_bubble_outline</i>
-                                <input id="task-desc" type="text" class="validate">
-                                <label for="icon_prefix">Description</label>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">chat_bubble_outline</i>
+                            <input id="task-desc" type="text" class="validate">
+                            <label for="icon_prefix">Description</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">add_alert</i>
-                                <!-- <input id="task-dueDate" type="text" class="datepicker"> -->
-                                <input id="task-dueDate" type="datetime-local">
-                                <!-- <label for="icon_prefix">Click To Pick Date</label> -->
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">add_alert</i>
+                            <!-- <input id="task-dueDate" type="text" class="datepicker"> -->
+                            <input id="task-dueDate" type="datetime-local">
+                            <!-- <label for="icon_prefix">Click To Pick Date</label> -->
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <a onclick="addTodo()" class="modal-close waves-effect waves-green btn-flat">OK</a>
-                </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a onclick="addTodo()" class="modal-close waves-effect waves-green btn-flat">OK</a>
             </div>
         </div>
+    </div>
 
 
-
-        <!--JavaScript at end of body for optimized loading-->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script src="./materialize/js/materialize.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="./main.js"></script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./materialize/js/materialize.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./main.js"></script>
 
 </body>
 

@@ -3,28 +3,35 @@ input[type="search"] {
 }
 
 h2, h3, h4, h5, h6, h7, h8 {
-  font-family: 'Heebo', sans-serif;}
+  font-family: 'Avenir'}
 
 body {
-  background-image: url('./assets/bg2.jpeg')
+  background-image: url('./assets/bg5.jpeg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  font-family: 'Avenir'
 }
-
-
-
-#public-page {
-  margin-top: 10px;
-}
-
+ 
 #front-title {
   text-align: center;
-  margin-top: 55px;
+  margin-top: 80px;
 }
 
 #front-title2 {
   text-align: center;
-  margin-top: 55px;
+  margin-top: 80px;
 }
 
+#google-login {
+  margin: auto;
+}
+
+#google-login2 {
+  margin: auto;
+}
+
+
+/* 
 #public-page2 {
   background-color: white;
   padding-top:-50px;
@@ -78,7 +85,7 @@ body {
 #google-login2 {
   padding:-100px;
   margin-left: 290px;
-}
+} */
 
 
 
