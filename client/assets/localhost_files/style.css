@@ -32,6 +32,65 @@ body {
   margin: auto;
 }
 
+
+/* 
+#public-page2 {
+  background-color: white;
+  padding-top:-50px;
+  padding:30px;
+  opacity : 0.6;
+  border-radius: 5%;
+  width:400px;
+  height:300px;
+}
+
+#public-page input {
+  border-radius: 5%;
+  padding-left:7px;
+  padding-right: -20px;
+}
+
+#registration-page2 {
+  background-color: white;
+  padding-top:-50px;
+  padding:30px;
+  opacity : 0.6;
+  border-radius: 5%;
+  width:400px;
+  height:430px;
+}
+
+#member-public h7 {
+  padding:-100px;
+  margin-left:-220px;
+  text-align: center;
+  color: black;
+}
+
+#google-login {
+  padding:-100px;
+  margin-left: 290px;
+}
+
+#login-button {
+  padding:-10000px;
+  margin-left: 300px;
+}
+
+#account-public h7 {
+  padding:-100px;
+  margin-left:280px;
+  text-align: center;
+  color: black;
+}
+
+#google-login2 {
+  padding:-100px;
+  margin-left: 290px;
+} */
+
+
+
 .cards-container {
   column-break-inside: avoid;
 }
